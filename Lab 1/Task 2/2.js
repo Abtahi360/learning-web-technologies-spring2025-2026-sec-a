@@ -1,4 +1,4 @@
-function validation() {
+function validateEmail() {
     let email = document.getElementById("email").value.trim();
     let msg = document.getElementById("msg");
     let atPosition = email.indexOf("@");

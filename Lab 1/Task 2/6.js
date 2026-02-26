@@ -1,4 +1,4 @@
-function validation() {
+function validateBlood() {
     let bloodGroup = document.getElementById("bloodGroup");
     let msg = document.getElementById("msg");
     let checked = false;

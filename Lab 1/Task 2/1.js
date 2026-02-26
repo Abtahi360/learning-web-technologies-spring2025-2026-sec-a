@@ -1,4 +1,4 @@
-function validate() {
+function validateName() {
     let name = document.getElementById("name").value.trim();
     let msg = document.getElementById("msg");
 

@@ -1,6 +1,6 @@
-function validation() {
+function validatePhoto() {
     let userId = document.getElementById("userId").value.trim();
-    let profilePicture = document.getElementById("profilePicture").value;
+    let photo = document.getElementById("photo").value;
     let msg = document.getElementById("msg");
 
     if (userId === "") {
@@ -13,7 +13,7 @@ function validation() {
         msg.style.color = "red";
         return false;
     }
-    else if (profilePicture === "") {
+    else if (photo === "") {
         msg.innerHTML = "Please select a profile picture..!";
         msg.style.color = "red";
         return false;

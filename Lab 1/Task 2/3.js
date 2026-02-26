@@ -1,4 +1,4 @@
-function validation() {
+function validateGender() {
     const radioButtons = document.getElementsByName('gender');
     let msg = document.getElementById('msg');
     let selected = false;

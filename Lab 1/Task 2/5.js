@@ -1,4 +1,4 @@
-function validation() {
+function validateDegree() {
     let checkboxes = document.getElementsByName("degree");
     let msg = document.getElementById("msg");
     let checked = false;

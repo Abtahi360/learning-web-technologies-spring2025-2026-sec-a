@@ -1,4 +1,4 @@
-function validation() {
+function validateDOB() {
     const dd = document.getElementById("dd").value.trim();
     const mm = document.getElementById("mm").value.trim();
     const yyyy = document.getElementById("yyyy").value.trim();
