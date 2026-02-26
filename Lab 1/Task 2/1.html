@@ -1,12 +1,41 @@
 <html>
 <head>
     <title>Task 1 - Name TextField and Button</title>
+    <script>
+        function validate() {
+            let name = document.getElementById("name").value.trim();
+            let msg = document.getElementById("msg");
+            let regex = /^[a-zA-Z\s]+$/;
+
+            if (name === "") {
+                msg.innerHTML = "Please enter your name..!";
+                msg.style.color = "red";
+                return false;
+            }
+            else if (name.length < 2) {
+                msg.innerHTML = "Name must be at least 2 characters long..!";
+                msg.style.color = "red";
+                return false;
+            }
+            else if (!regex.test(name)) {
+                msg.innerHTML = "Name can contain only letters and spaces..!";
+                msg.style.color = "red";
+                return false;
+            }
+            else {
+                msg.innerHTML = "Welcome, " + name + "!";
+                msg.style.color = "green";
+                return true;
+            }
+        }
+    </script>
 </head>
 <body>
     <h3>Name</h3>
-        <form>
-            <input type="text" name="Name"> <br>
+        <form onsubmit="return validate()">
+            <input id="name" type="text" name="Name"> <br>
             <input type="submit" value="Submit"><br><br><br><br><br><br><br><br><br>
         </form>
+        <p id="msg"></p>
 </body>
 </html>
