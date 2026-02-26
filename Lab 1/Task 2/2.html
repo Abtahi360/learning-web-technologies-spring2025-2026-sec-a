@@ -3,14 +3,13 @@
 <head>
     <title>Task 2 - Email</title>
     <link rel="stylesheet" href="2.css"/>
-
+    <script src="2.js"></script>
 </head>
 <body>
 
 <h3>Email</h3>
-
-<form>
-    <input type="text" name="email">
+<form onsubmit="return validation()">
+    <input type="text" name="email" id="email" placeholder="Enter your email">
 
     <span class="hint-box">
         <span class="info-icon">i</span>
@@ -19,6 +18,8 @@
     <br>
     <input type="submit" value="Submit">
 </form>
+<p id="msg"></p>
+
 
 </body>
 </html>
