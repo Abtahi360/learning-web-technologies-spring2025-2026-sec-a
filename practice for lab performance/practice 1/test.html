@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <title>Move Element</title>
+    <style>
+        #container{
+            position: relative;
+            width: 500px;
+            height: 300px;
+            border: 2px solid black;
+            margin-top: 20px;
+        }
+
+        .box{
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Move Element Example</h2>
+
+    <input type="button" value="Create Box" id="createBtn" />
+    <br><br>
+
+    <input type="button" value="Up" id="up" />
+    <input type="button" value="Down" id="down" />
+    <input type="button" value="Left" id="left" />
+    <input type="button" value="Right" id="right" />
+
+    <div id="container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
