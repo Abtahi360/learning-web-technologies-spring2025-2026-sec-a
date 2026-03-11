@@ -89,3 +89,43 @@ function onCellClick(index, cell) {
     msgEl.innerHTML = '';
 }
 
+function checkResult() {
+    for (let i = 0; i < winStates.length; i++) {
+        let [a,b,c] = winStates[i];
+        if (boardState[a] !== '' && boardState[a] === boardState[b] && boardState[a] === boardState[c]) {
+            return { winner: boardState[a], combo: winStates[i], draw: false };
+        }
+    }
+
+    let isDraw = boardState.every(function(cell){ return cell !== ''; });
+    if (isDraw) return { winner: null, combo: null, draw: true };
+
+    return { winner: null, combo: null, draw: false };
+}
+
+function updateStatus() {
+    currentPlayerEl.innerHTML = currentPlayer;
+    statusEl.innerHTML = 'Current player: <strong id="currentPlayer">' + currentPlayer + '</strong>';
+}
+
+function updateScores() {
+    scoreXEl.innerHTML = scores.X;
+    scoreOEl.innerHTML = scores.O;
+}
+
+resetBtn.addEventListener('click', function() {
+    let winCells = boardEl.querySelectorAll('.cell.win');
+    for (let i = 0; i < winCells.length; i++) {
+        winCells[i].classList.remove('win');
+    }
+    initGame();
+});
+
+resetScoresBtn.addEventListener('click', function() {
+    scores.X = 0;
+    scores.O = 0;
+    updateScores();
+    initGame();
+});
+
+initGame();
