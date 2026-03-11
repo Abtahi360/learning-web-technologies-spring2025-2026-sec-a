@@ -21,3 +21,23 @@
     position: relative;
     transition: transform 150ms ease, background 200ms ease;
 }
+
+.cell:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.cell:active {
+    transform: scale(0.95);
+}
+
+.cell.winning {
+    background: #d4edda;
+    border-color: #28a745;
+    box-shadow: 0 6px 18px rgba(255, 155, 30, 0.18);
+}
+
+.cell.marked {
+    transform: scale(1.1);
+}
+
