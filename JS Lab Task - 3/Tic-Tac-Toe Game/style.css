@@ -66,3 +66,24 @@ button:hover {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+#scoreboard {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.scoreBox {
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #f3f3f3;
+    border: 1px solid #e0e0e0;
+}
+
+
+@media (max-width:420px) {
+    #board {
+        width: 260px;
+        height: 260px;
+    }
+}
