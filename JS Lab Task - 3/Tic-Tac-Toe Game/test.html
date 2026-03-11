@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Tic Tac Toe Game</title>
+    <meta name ="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Tic Tac Toe Game</h1>
+    <p id="status">Current player: <strong id="currentPlayer">X</strong></p>
+
+    <div id="scoreboard">
+        <div class="scoreBox">X wins: <span id="scoreX">0</span></div>
+        <div class="scoreBox">O wins: <span id="scoreO">0</span></div>
+    </div>
+
+    <div id="board" aria-label="Tic Tac Toe Board"></div>
+
+    <div id="controls">
+        <button id="resetButton">Reset Game</button>
+        <button id="resetScoresButton">Reset Scores</button>
+        <p id="message" style="margin: 0 0 0 8px;color: aquamarine;"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
