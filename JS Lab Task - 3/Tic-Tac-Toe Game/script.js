@@ -35,7 +35,6 @@ function initGame() {
         let cell = document.createElement('div');
         cell.className = 'cell';
         cell.setAttribute('data-index', i);
-        // click handler — similar pattern to your btn listeners
         cell.addEventListener('click', function(){
             onCellClick(i, cell);
         });
@@ -85,7 +84,6 @@ function onCellClick(index, cellEl) {
         return;
     }
 
-    // switch player and continue
     currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
     updateStatus();
     msgEl.innerHTML = '';
