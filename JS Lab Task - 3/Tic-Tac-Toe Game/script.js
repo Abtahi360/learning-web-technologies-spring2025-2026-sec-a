@@ -40,5 +40,52 @@ function initGame() {
         });
         boardEl.appendChild(cell);
     }
-    msgEl.textContent = '';
+    msgEl.innerHTML = '';
 }
+
+function onCellClick(index, cell) {
+    if (!gameActive) {
+        msgEl.innerHTML = 'Game over — press Reset to play again.';
+        return;
+    }
+
+    if (boardState[index] !== '') {
+        msgEl.innerHTML = 'Cell already marked — choose another.';
+        return;
+    }
+
+    boardState[index] = currentPlayer;
+    cell.innerHTML = currentPlayer;
+
+    cellEl.classList.add('marked');
+
+    setTimeout(function(){
+        cellEl.classList.remove('marked');
+    }, 160);
+
+    let result = checkResult();
+    if (result.winner) {
+        result.combo.forEach(function(idx){
+            let c = boardEl.querySelector('[data-index="'+idx+'"]');
+            if (c) c.classList.add('win');
+        });
+        scores[result.winner] += 1;
+        updateScores();
+        statusEl.innerHTML = 'Winner: <strong>' + result.winner + '</strong> 🎉';
+        gameActive = false;
+        msgEl.innerHTML = 'Press Reset to play again.';
+        return;
+    }
+
+    if (result.draw) {
+        statusEl.innerHTML = 'It\'s a draw! 🤝';
+        gameActive = false;
+        msgEl.innerHTML = 'Press Reset to play again.';
+        return;
+    }
+
+    currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
+    updateStatus();
+    msgEl.innerHTML = '';
+}
+
