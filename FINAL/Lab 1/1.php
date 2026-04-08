@@ -1,11 +1,22 @@
-<?php
-    $length = 10;
-    $width = 5;
-    $area = $length * $width;
-    $perimeter = 2 * ($length + $width);
 
-    echo "Length = {$length}<br>";
-    echo "Width = {$width}<br>";
-    echo "Area of Rectangle = {$area}<br>";
-    echo "Perimeter of Rectangle = {$perimeter}<br>";
+<html>
+    <head>
+        <title>Lab 1 - Task 1</title>
+    </head>
+    <body>
+        <h1>Task 1: Calculate Area and Perimeter of a Rectangle</h1>
+    </body>
+</html>
+
+
+<?php
+    $l = 10;
+    $w = 5;
+    $a = $l * $w;
+    $p = 2 * ($l + $w);
+
+    echo "Length = {$l}<br>";
+    echo "Width = {$w}<br>";
+    echo "Area of Rectangle = {$a}<br>";
+    echo "Perimeter of Rectangle = {$p}<br>";
 ?>
