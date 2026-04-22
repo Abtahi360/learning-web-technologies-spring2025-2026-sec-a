@@ -2,8 +2,6 @@
     session_start();
 
     if(isset($_POST['submit'])){
-
-
         $name=trim($_REQUEST['name']);
         $email=trim($_REQUEST['email']);
         $username= trim($_REQUEST['username']);
