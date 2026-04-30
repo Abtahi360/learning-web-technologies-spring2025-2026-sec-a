@@ -28,7 +28,14 @@
     }
 
     function getAllUser(){
-
+        $con = getConnection();
+        $sql = "select * from users";
+        $result = mysqli_query($con, $sql);
+        $users = [];
+        while($row = mysqli_fetch_assoc($result)){
+            $users[] = $row;
+        }
+        return $users;
     }
 
     function getUserById($id){
