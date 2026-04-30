@@ -1,16 +1,9 @@
 <?php
     session_start();
+    require_once('../model/userModel.php');
+
     $id = $_GET['id'];
-    $users = $_SESSION['users'];
-    $user =[];
-    foreach($users as $u){
-        if($id == $u['id']){
-            $user = $u;
-            //$u['username'] = $username; 
-            //$u['email'] = $email; 
-            break;
-        }
-    }
+    $user = getUserById($id);
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +18,7 @@
         <a href="../controller/logout.php">Logout</a> 
         <br>
         
-        <form method="post" action="updateCheck.php" enctype="">
+        <form method="post" action="../controller/updateCheck.php" enctype="">
             <fieldset>
                 <legend>Edit User</legend>
             ID: <input type="text" name="id" readonly value="<?=$user['id']?>"/> <br>
