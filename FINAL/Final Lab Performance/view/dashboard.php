@@ -33,3 +33,33 @@ $employers = getAllEmployers();
     <br>
     Search Employer: <input type="text" id="search_key" onkeyup="searchEmployers()" />
     <br><br>
+
+    <table border="1" width="100%">
+        <tr>
+            <th>ID</th>
+            <th>Employer Name</th>
+            <th>Company Name</th>
+            <th>Contact No</th>
+            <th>Username</th>
+            <th>Action</th>
+        </tr>
+        <tbody id="employer_rows">
+        <?php foreach($employers as $emp){ ?>
+            <tr>
+                <td><?php echo $emp['id']; ?></td>
+                <td><?php echo $emp['employer_name']; ?></td>
+                <td><?php echo $emp['company_name']; ?></td>
+                <td><?php echo $emp['contact_no']; ?></td>
+                <td><?php echo $emp['username']; ?></td>
+                <td>
+                    <a href="edit.php?id=<?php echo $emp['id']; ?>">EDIT</a> |
+                    <a href="../controller/action.php?action=delete_employer&id=<?php echo $emp['id']; ?>" onclick="return confirm('Are you sure?')">DELETE</a>
+                </td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+
+    <script src="../assets/js/search.js"></script>
+</body>
+</html>
