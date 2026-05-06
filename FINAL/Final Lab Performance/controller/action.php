@@ -67,3 +67,38 @@ if($action === 'logout'){
     header('location: ../view/login.php');
     exit;
 }
+
+
+if($action === 'create_employer'){
+    if(!loggedIn()){
+        header('location: ../view/login.php');
+        exit;
+    }
+    if(isset($_POST['submit'])){
+        $employer_name = $_REQUEST['employer_name'] ?? '';
+        $company_name = $_REQUEST['company_name'] ?? '';
+        $contact_no = $_REQUEST['contact_no'] ?? '';
+        $username = $_REQUEST['username'] ?? '';
+        $password = $_REQUEST['password'] ?? '';
+
+        if($employer_name == '' || $company_name == '' || $contact_no == '' || $username == '' || $password == ''){
+            echo 'null employer/company/contact/username/password';
+        }else{
+            $emp = [
+                'employer_name'=>$employer_name,
+                'company_name'=>$company_name,
+                'contact_no'=>$contact_no,
+                'username'=>$username,
+                'password'=>$password
+            ];
+            if(addEmployer($emp)){
+                header('location: ../view/home.php');
+            }else{
+                echo 'employer insert failed';
+            }
+        }
+    }else{
+        header('location: ../view/home.php');
+    }
+    exit;
+}
