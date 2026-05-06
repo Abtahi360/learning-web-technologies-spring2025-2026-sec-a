@@ -57,3 +57,13 @@ if($action === 'admin_login'){
     }
     exit;
 }
+
+
+if($action === 'logout'){
+    unset($_SESSION['status']);
+    unset($_SESSION['username']);
+    session_destroy();
+    setcookie('status', true, time()-3600, '/');
+    header('location: ../view/login.php');
+    exit;
+}
