@@ -86,7 +86,6 @@ function deleteEmployer($id){
 
 
 
-
 function searchEmployers($key){
     $con = getConnection();
     $key = clean($key);
