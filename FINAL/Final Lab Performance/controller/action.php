@@ -102,3 +102,70 @@ if($action === 'create_employer'){
     }
     exit;
 }
+
+
+
+if($action === 'edit_employer'){
+    if(!loggedIn()){
+        header('location: ../view/login.php');
+        exit;
+    }
+    if(isset($_POST['submit'])){
+        $id = $_REQUEST['id'] ?? '';
+        $employer_name = $_REQUEST['employer_name'] ?? '';
+        $company_name = $_REQUEST['company_name'] ?? '';
+        $contact_no = $_REQUEST['contact_no'] ?? '';
+        $username = $_REQUEST['username'] ?? '';
+        $password = $_REQUEST['password'] ?? '';
+
+        if($id == '' || $employer_name == '' || $company_name == '' || $contact_no == '' || $username == '' || $password == ''){
+            echo 'null id/employer/company/contact/username/password';
+        }else{
+            $emp = [
+                'id'=>$id,
+                'employer_name'=>$employer_name,
+                'company_name'=>$company_name,
+                'contact_no'=>$contact_no,
+                'username'=>$username,
+                'password'=>$password
+            ];
+            if(updateEmployer($emp)){
+                header('location: ../view/home.php');
+            }else{
+                echo 'employer update failed';
+            }
+        }
+    }else{
+        header('location: ../view/home.php');
+    }
+    exit;
+}
+
+
+
+if($action === 'delete_employer'){
+    if(!loggedIn()){
+        header('location: ../view/login.php');
+        exit;
+    }
+    $id = $_GET['id'] ?? '';
+    if($id != ''){
+        deleteEmployer($id);
+    }
+    header('location: ../view/home.php');
+    exit;
+}
+
+if($action === 'search_employer'){
+    if(!loggedIn()){
+        echo json_encode([]);
+        exit;
+    }
+    $key = $_REQUEST['key'] ?? '';
+    header('Content-Type: application/json');
+    echo json_encode(searchEmployers($key));
+    exit;
+}
+
+header('location: ../view/login.php');
+?>
