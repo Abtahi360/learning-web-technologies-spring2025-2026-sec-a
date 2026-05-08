@@ -49,7 +49,7 @@ if($action === 'admin_login'){
                 setcookie('status', true, time()+3600, '/');
                 header('location: ../view/home.php');
             }else{
-                echo 'invalid user!';
+                echo 'invalid user..!';
             }
         }
     }else{

@@ -7,6 +7,7 @@ function clean($value){
 }
 
 
+
 function loginAdmin($admin){
     $con = getConnection();
     $username = clean($admin['username']);
@@ -60,7 +61,7 @@ function getEmployerById($id){
     $sql = "SELECT * FROM employers WHERE id={$id}";
     $result = mysqli_query($con, $sql);
     return mysqli_fetch_assoc($result);
-}
+} 
 
 
 
